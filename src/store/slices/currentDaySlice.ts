@@ -14,7 +14,7 @@ export const createCurrentDaySlice: StateCreator<CurrentDaySlice> = (set) => ({
   fetchCurrentDayWeather: async (city) => {
     try {
       const response = await axios.get(
-        `${process.env.BASE_URL}weather?q=${city}&appid=${process.env.API_KEY}`
+        `${process.env.BASE_URL}current.json?&key=${process.env.API_KEY}&q=${city}`
       );
       set({ currentDayWeather: response.data });
     } catch (error: any) {
